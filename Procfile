@@ -1,2 +1,1 @@
-web: python web_client.py
-worker: python server.py
+web: python start_both.py

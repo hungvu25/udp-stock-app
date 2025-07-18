@@ -17,8 +17,8 @@ socketio = SocketIO(app, cors_allowed_origins="*")
 
 class WebUDPClient:
     def __init__(self):
-        self.server_host = 'localhost'
-        self.server_port = 12345  # Sửa port để khớp với server
+        self.server_host = os.environ.get('UDP_HOST', 'localhost')
+        self.server_port = int(os.environ.get('UDP_PORT', 12345))  # Sửa port để khớp với server
         self.password = "shared_secret_key"  # Password khớp với server
         self.sessions = {}  # Dictionary để lưu lịch sử cho mỗi session
         
