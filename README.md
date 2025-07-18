@@ -1,30 +1,33 @@
 # 📡 Ứng dụng Client/Server UDP với Mã hóa Đầu-cuối
 
 ## 🎯 Mô tả
-Ứng dụ👤 Nhập dữ liệu: AAPL
-🌐 AAPL: $211.105 USD
-   Công ty: Apple Inc
-   Nguồn: Finnhub API
-
-👤 Nhập dữ liệu: 25
-✅ Đã nhận số 25
-
-👤 Nhập dữ liệu: MSFT
-🌐 MSFT: $511.1 USD
-   Công ty: Microsoft Corp
-   Nguồn: Finnhub API
-
-👤 Nhập dữ liệu: -5
-⚠️  Số âm -5 bị bỏ qua
-
-👤 Nhập dữ liệu: 0
-🎯 === KẾT QUẢ CUỐI CÙNG ===
-📊 Các số đã gửi: [15, 25]
-🧮 Tổng các số > 0: 40dụng giao thức UDP với mã hóa AES end-to-end encryption để:
+Ứng dụng giao thức UDP với mã hóa AES end-to-end encryption để:
 - Xử lý số nguyên và tính tổng các số > 0
 - Truy vấn giá cổ phiếu qua Finnhub.io API (với fallback data)
 
-## 🔧 Cài đặt
+## � Deployment trên Railway
+
+### Bước 1: Chuẩn bị Repository
+1. Tạo repository GitHub mới
+2. Push toàn bộ code lên GitHub
+
+### Bước 2: Deploy trên Railway
+1. Đăng nhập https://railway.app
+2. Click "New Project" → "Deploy from GitHub repo"
+3. Chọn repository vừa tạo
+4. Railway sẽ tự động detect và deploy
+
+### Bước 3: Cấu hình biến môi trường (Optional)
+Trong Railway dashboard:
+1. Vào tab "Variables"
+2. Thêm biến môi trường:
+   - `FINNHUB_API_KEY`: API key của bạn từ finnhub.io
+
+### Bước 4: Truy cập ứng dụng
+- Railway sẽ cung cấp URL public (ví dụ: https://your-app.railway.app)
+- Truy cập URL đó để sử dụng web interface
+
+## 🔧 Cài đặt Local
 
 ### 1. Cài đặt dependencies
 ```bash

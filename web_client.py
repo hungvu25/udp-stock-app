@@ -9,6 +9,7 @@ import base64
 import threading
 import time
 import uuid
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'your-secret-key-here'
@@ -333,9 +334,10 @@ cleanup_thread.start()
 
 if __name__ == '__main__':
     print("🌐 Web Client đang khởi động...")
-    print("📡 Server: http://localhost:5000")
+    port = int(os.environ.get('PORT', 5000))
+    print(f"📡 Server: http://0.0.0.0:{port}")
     print("🔗 Kết nối đến UDP Server: localhost:12345")
     print("=" * 50)
     
     # Chạy Flask-SocketIO app
-    socketio.run(app, host='0.0.0.0', port=5000, debug=True, allow_unsafe_werkzeug=True)
+    socketio.run(app, host='0.0.0.0', port=port, debug=False, allow_unsafe_werkzeug=True)

@@ -7,6 +7,7 @@ from cryptography.hazmat.primitives.kdf.pbkdf2 import PBKDF2HMAC
 import base64
 import finnhub
 import time
+import os
 from config import FINNHUB_API_KEY
 
 class UDPServer:
@@ -222,5 +223,9 @@ class UDPServer:
         print("✅ Server đã tắt")
 
 if __name__ == "__main__":
-    server = UDPServer()
+    # Lấy cổng từ biến môi trường (Railway sẽ cung cấp PORT)
+    port = int(os.environ.get('PORT', 12345))
+    host = '0.0.0.0'  # Lắng nghe trên tất cả interface
+    
+    server = UDPServer(host=host, port=port)
     server.start()
